@@ -2,8 +2,8 @@
 
 Movies Application
 
-FrontEnd-React.js
+FrontEnd- React.js
 
-Styling-Tailwindcss
+Styling- Tailwindcss
 
-Data-base-Firebase
+Database- Firebase
