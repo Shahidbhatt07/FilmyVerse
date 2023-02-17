@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TailSpin } from "react-loader-spinner";
 import { addDoc } from "firebase/firestore";
-import { moviesRef } from "./firebase/firebase";
+import { moviesRef } from "../firebase/firebase";
 import swal from "sweetalert";
 
 const AddMovie = () => {
@@ -24,6 +24,12 @@ const AddMovie = () => {
             buttons: false,
             timer: 3000
         })
+          setForm({
+            title: "",
+            year: "",
+            description: "",
+            image: "",
+          })
         } catch (err) {
             swal({
                 title: err,
