@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import {db} from '../firebase/firebase'
 import { doc, getDoc } from 'firebase/firestore'
 import { ThreeCircles } from 'react-loader-spinner'
+import Reviews from './Reviews'
 
 const Detail = () => {
     const { id } = useParams();
@@ -12,8 +13,11 @@ const Detail = () => {
     title: "",
     year: "",
     image: "",
-    description: ""
+    description: "",
+    rating: 0,
+    rated: 0
   });
+    
   const [loading, setLoading] = useState(false);
   
     useEffect(() => {
@@ -40,11 +44,13 @@ const Detail = () => {
         <ReactStars
           size={20}
           half={true}
-          value={4.5}
+          value={data.rating/data.rated}
           edit={false}
         />
 
         <p className='mt-2'>{data.description}</p>
+                      
+        <Reviews id={id} prevRating={data.rating} userRated={data.rated}/>
 
       </div>
       </>
