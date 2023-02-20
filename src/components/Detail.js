@@ -7,8 +7,7 @@ import { ThreeCircles } from 'react-loader-spinner'
 import Reviews from './Reviews'
 
 const Detail = () => {
-    const { id } = useParams();
-    
+  const {id} = useParams();
   const [data, setData] = useState({
     title: "",
     year: "",
@@ -17,17 +16,15 @@ const Detail = () => {
     rating: 0,
     rated: 0
   });
-    
   const [loading, setLoading] = useState(false);
   
-    useEffect(() => {
-        setLoading(true);
-      async function getData() {
+  useEffect(() => {
+    async function getData() {
+      setLoading(true);
       const _doc = doc(db, "movies", id);
       const _data = await getDoc(_doc);
-          setData(_data.data());
-          setLoading(false);
-      
+      setData(_data.data());
+      setLoading(false);
     }
     getData();
   },[])
@@ -49,9 +46,8 @@ const Detail = () => {
         />
 
         <p className='mt-2'>{data.description}</p>
-                      
-        <Reviews id={id} prevRating={data.rating} userRated={data.rated}/>
 
+        <Reviews id={id} prevRating={data.rating} userRated={data.rated} />
       </div>
       </>
     }
