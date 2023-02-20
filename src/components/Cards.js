@@ -35,7 +35,6 @@ const Cards = () => {
                   alt="Avengers Endgame"
                 />
                 <h1>
-                  <span className="text-gray-500">Name:</span>
                   {e.title}
                 </h1>
                 <h1 className="flex items-center ">
